@@ -1,0 +1,23 @@
+@media (max-width: 991px){
+    .level-1, .level-2{
+        display: block;
+        position: unset;
+        width: 100%;
+    }
+
+    .menu li{
+        display: block;
+    }
+
+    .menu li.parent ul{
+        max-height: 0;
+        overflow: hidden;
+        transition: all .4s ease;
+        background-color: #bbbbbb;
+    }
+
+    .menu li.parent:hover > ul{
+        max-height: 1000px;
+        transition: all .4s ease;
+    }
+}

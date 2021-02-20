@@ -1,0 +1,250 @@
+@import "grid.css";
+
+/*Global*/
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+p {
+    font-size: inherit;
+}
+
+a{
+    color: #000000;
+    text-decoration: none;
+}
+
+a:hover{
+    color: inherit;
+    text-decoration: none;
+}
+
+ul{
+    list-style: none;
+    background-color: orange;
+    display: inline-block;
+}
+
+ul li{
+    cursor: pointer;
+}
+
+/*Header*/
+
+.header-main {
+    width: 100%;
+    height: 125px;
+    padding: 40px 0;
+    background-color: #cccccc;
+    position: relative;
+    z-index: 3;
+}
+
+
+/*Navigation*/
+.menu li{
+    position: relative;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.menu li a{
+    padding: 10px;
+    display: block;
+}
+
+.menu li a:hover{
+    background-color: green;
+    color: #ffffff;
+}
+
+.menu li:hover .level-1{
+    display: block;
+}
+
+.level-1 li:hover > .level-2{
+    display: block;
+}
+
+.menu a{
+    display: block;
+    color: #ffffff;
+}
+
+.level-1, .level-2{
+    width: fit-content;
+    position: absolute;
+    left: 0;
+    display: none;
+    z-index: 2;
+}
+
+.level-1 li, .level-2 li{
+    width: 100%;
+}
+
+
+.level-1{
+    top: 38px;
+    animation: dropDown .3s linear;
+}
+
+.level-2{
+    top: 0;
+    left: 100%;
+    animation: slide .3s linear;
+}
+
+@keyframes dropDown {
+    0%{
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    100%{
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes slide {
+    0%{
+        opacity: 0;
+        transform: translateX(18px);
+    }
+
+    100%{
+        opacity: 1;
+        transform: none;
+    }
+}
+
+
+
+/*Main block*/
+
+#main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 70px 0;
+}
+
+
+/*Items*/
+
+.item-block {
+    width: 80%;
+}
+
+.item {
+    padding: 20px;
+    border: 1px solid #bbbbbb;
+    margin: 15px 0;
+    cursor: move;
+}
+
+.item-image {
+    height: 300px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.item-title {
+    font-weight: bold;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.item-title form input{
+    width: 100%;
+    height: 30px;
+    border: none;
+    border-bottom: 1px solid #000000;
+}
+
+.item-title form input:focus{
+    outline: none;
+}
+
+.item-title form button, .item-title form .cancel{
+    background: green;
+    color: #ffffff;
+    border-radius: 0;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.item-title form .cancel{
+    font-size: 13px;
+    font-weight: 400;
+    background-color: #ff0000;
+}
+
+.item-title form button:focus{
+    outline: none;
+}
+
+.item-desc {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.item-desc textarea{
+    width: 100%;
+    background: transparent;
+    border: none;
+    max-width: 100%;
+    min-width: 100%;
+
+}
+
+.item-desc-edit{
+    padding: 5px 10px;
+    background: green;
+    display: inline-block;
+    color: #fff;
+}
+
+.item-price {
+    font-size: 30px;
+}
+
+
+.item-btn button {
+    padding: 8px 30px;
+    background-color: green;
+    border: none;
+    color: #ffffff;
+    font-size: 18px;
+    border-radius: 6px;
+    margin-top: 10px;
+}
+
+.item-btn button:focus {
+    outline: none;
+}
+
+.drag-item{
+    opacity: .3;
+}
+
+.single-item-block{
+    transition: all .3s ease;
+}
+
+.dragging{
+    border: 2px solid red;
+}
